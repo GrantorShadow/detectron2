@@ -61,6 +61,8 @@ _C.INPUT.MAX_SIZE_TEST = 1333
 # choose one of ["horizontal, "vertical", "none"]
 _C.INPUT.RANDOM_FLIP = "horizontal"
 
+_C.INPUT.WINDOW_SIZE = 1560
+
 # `True` if cropping is used for data augmentation during training
 _C.INPUT.CROP = CN({"ENABLED": False})
 # Cropping type. See documentation of `detectron2.data.transforms.RandomCrop` for explanation.
@@ -118,6 +120,8 @@ _C.DATALOADER.REPEAT_THRESHOLD = 0.0
 # Tf True, when working on datasets that have instance annotations, the
 # training dataloader will filter out images without associated annotations
 _C.DATALOADER.FILTER_EMPTY_ANNOTATIONS = True
+
+_C.DATALOADER.SOURCE_AWARE = False
 
 # ---------------------------------------------------------------------------- #
 # Backbone options
@@ -569,6 +573,10 @@ _C.SOLVER.CLIP_GRADIENTS.NORM_TYPE = 2.0
 # Note that this does not change model's inference behavior.
 # To use AMP in inference, run inference under autocast()
 _C.SOLVER.AMP = CN({"ENABLED": False})
+
+# Hyperparams for Adam optimizer
+_C.SOLVER.BETAS = (0.9, 0.999)
+_C.SOLVER.EPS = 1e-08
 
 # ---------------------------------------------------------------------------- #
 # Specific test options
